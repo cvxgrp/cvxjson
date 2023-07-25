@@ -36,7 +36,7 @@ Functions
    :returns: a bson-document
 
 
-.. py:function:: write_bson(file: pathlib.Path, data, compression='zstd')
+.. py:function:: write_bson(file: pathlib.Path, data)
 
    Write dictionary into bson file
 
