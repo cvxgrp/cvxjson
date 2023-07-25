@@ -96,19 +96,16 @@
 <span class="sd">    Returns:</span>
 <span class="sd">        a bson-document</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">assert</span> <span class="n">file</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
-
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">openfile</span><span class="p">:</span>
         <span class="c1"># Reading from bson file</span>
         <span class="n">bson_document</span> <span class="o">=</span> <span class="n">openfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">bson</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">bson_document</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">xxx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">row</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">pq</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">value</span><span class="p">))])</span>
-            <span class="k">yield</span> <span class="n">name</span><span class="p">,</span> <span class="n">xxx</span></div>
+            <span class="k">yield</span> <span class="n">name</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">row</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">pq</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">value</span><span class="p">))])</span></div>
 
 
-<div class="viewcode-block" id="write_bson"><a class="viewcode-back" href="../../autoapi/bson/file/index.html#bson.file.write_bson">[docs]</a><span class="k">def</span> <span class="nf">write_bson</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">dic</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="s2">&quot;zstd&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="write_bson"><a class="viewcode-back" href="../../autoapi/bson/file/index.html#bson.file.write_bson">[docs]</a><span class="k">def</span> <span class="nf">write_bson</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="s2">&quot;zstd&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Write dictionary into bson file</span>
 
@@ -149,7 +146,7 @@
 
             <span class="k">return</span> <span class="n">buffer</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
 
-    <span class="n">content</span> <span class="o">=</span> <span class="n">bson</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="n">name</span><span class="p">:</span> <span class="n">to_binary</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">dic</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">bson</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="n">name</span><span class="p">:</span> <span class="n">to_binary</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
 
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">file</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">bson_file</span><span class="p">:</span>
         <span class="n">bson_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
