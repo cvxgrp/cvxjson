@@ -1,0 +1,15 @@
+:py:mod:`io`
+============
+
+.. py:module:: io
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   json/index.rst
+
+
