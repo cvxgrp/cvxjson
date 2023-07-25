@@ -15,27 +15,14 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import pandas as pd
-pd.options.plotting.backend = "plotly"
-
-import yfinance as yf
-
-from cvx.simulator.builder import builder
-from cvx.simulator.grid import resample_index
-
-# Get rid of findfont: Font family 'Arial' not found.
-# when running a remote notebook on Jupyter Server on Ubuntu Linux server
-import logging
-logging.getLogger("matplotlib.font_manager").setLevel(logging.ERROR)
+from cvx.json import read_json, write_json
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;31mImportError[0m                               Traceback (most recent call last)
 Cell [0;32mIn[1], line 1[0m
-[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
-[1;32m      2[0m pd[38;5;241m.[39moptions[38;5;241m.[39mplotting[38;5;241m.[39mbackend [38;5;241m=[39m [38;5;124m"[39m[38;5;124mplotly[39m[38;5;124m"[39m
-[1;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01myfinance[39;00m [38;5;28;01mas[39;00m [38;5;21;01myf[39;00m
+[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mcvx[39;00m[38;5;21;01m.[39;00m[38;5;21;01mjson[39;00m [38;5;28;01mimport[39;00m read_json, write_json
 
-[0;31mModuleNotFoundError[0m: No module named 'pandas'
+[0;31mImportError[0m: cannot import name 'read_json' from 'cvx.json' (/home/runner/work/cvxjson/cvxjson/cvx/json/__init__.py)
 

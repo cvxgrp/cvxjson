@@ -11,6 +11,5 @@ Submodules
    :maxdepth: 1
 
    file/index.rst
-   io/index.rst
 
 

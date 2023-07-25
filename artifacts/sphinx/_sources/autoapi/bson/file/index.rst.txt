@@ -5,20 +5,12 @@
 
 .. autoapi-nested-parse::
 
-   Dataclass to simplify dealing with bson files.
+   Tools to support working with bson files
 
 
 
 Module Contents
 ---------------
-
-Classes
-~~~~~~~
-
-.. autoapisummary::
-
-   bson.file._BsonFile
-
 
 
 Functions
@@ -26,51 +18,26 @@ Functions
 
 .. autoapisummary::
 
-   bson.file.build_bson
+   bson.file.read_bson
+   bson.file.write_bson
 
 
 
-.. py:function:: build_bson(file)
+.. py:function:: read_bson(file: pathlib.Path)
 
-   Construct the frozen Dataclass for a BsonFile with this builder.
+   Read a bson file and prepare the bson_document needed
 
-   :param file: Path to *.bson file.
+   :param file:
 
-   :returns: _BsonFile object.
-
-
-.. py:class:: _BsonFile
-
-   A BsonFile contains the keys meta, tables and timeseries.
-
-   .. attribute:: file
-
-      Path to *.bson file.
-
-   .. attribute:: data
-
-      Dict with data stored in a file.
-
-   .. py:attribute:: file
-      :annotation: :pathlib.Path
-
-      
-
-   .. py:attribute:: data
-      :annotation: :Dict
-
-      
-
-   .. py:method:: name(self)
-      :property:
-
-      Name of the file.
+   :returns: a bson-document
 
 
-   .. py:method:: parent(self)
-      :property:
+.. py:function:: write_bson(file: pathlib.Path, dic, compression='zstd')
 
-      Parent of the file (e.g. path).
+   Write dictionary into bson file
 
+   :param file: file
+   :param dictionary of polars dataframes:
+   :param logger: logger
 
 

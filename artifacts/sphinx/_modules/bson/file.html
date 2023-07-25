@@ -73,56 +73,90 @@
   <h1>Source code for bson.file</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Dataclass to simplify dealing with bson files.</span>
+<span class="sd">Tools to support working with bson files</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">import</span> <span class="nn">io</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
 
-<span class="kn">from</span> <span class="nn">.io</span> <span class="kn">import</span> <span class="n">read_bson</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">simple_bson</span> <span class="k">as</span> <span class="nn">bson</span>
+<span class="kn">import</span> <span class="nn">pyarrow</span> <span class="k">as</span> <span class="nn">pa</span>
+<span class="kn">import</span> <span class="nn">pyarrow.parquet</span> <span class="k">as</span> <span class="nn">pq</span>
 
-
-<div class="viewcode-block" id="build_bson"><a class="viewcode-back" href="../../autoapi/bson/file/index.html#bson.file.build_bson">[docs]</a><span class="k">def</span> <span class="nf">build_bson</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+<div class="viewcode-block" id="read_bson"><a class="viewcode-back" href="../../autoapi/bson/file/index.html#bson.file.read_bson">[docs]</a><span class="k">def</span> <span class="nf">read_bson</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Construct the frozen Dataclass for a BsonFile with this builder.</span>
+<span class="sd">    Read a bson file and prepare the bson_document needed</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        file: Path to *.bson file.</span>
+<span class="sd">        file:</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        _BsonFile object.</span>
+<span class="sd">        a bson-document</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_BsonFile</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">read_bson</span><span class="p">(</span><span class="n">file</span><span class="p">)))</span></div>
+    <span class="k">assert</span> <span class="n">file</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">openfile</span><span class="p">:</span>
+        <span class="c1"># Reading from bson file</span>
+        <span class="n">bson_document</span> <span class="o">=</span> <span class="n">openfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">bson</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">bson_document</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">xxx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">row</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">pq</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">value</span><span class="p">))])</span>
+            <span class="k">yield</span> <span class="n">name</span><span class="p">,</span> <span class="n">xxx</span></div>
 
 
-<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<div class="viewcode-block" id="_BsonFile"><a class="viewcode-back" href="../../autoapi/bson/file/index.html#bson.file._BsonFile">[docs]</a><span class="k">class</span> <span class="nc">_BsonFile</span><span class="p">:</span>
+
+<div class="viewcode-block" id="write_bson"><a class="viewcode-back" href="../../autoapi/bson/file/index.html#bson.file.write_bson">[docs]</a><span class="k">def</span> <span class="nf">write_bson</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">dic</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="s2">&quot;zstd&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    A BsonFile contains the keys meta, tables and timeseries.</span>
+<span class="sd">    Write dictionary into bson file</span>
 
-<span class="sd">    Attributes:</span>
-<span class="sd">        file: Path to *.bson file.</span>
-<span class="sd">        data: Dict with data stored in a file.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        file: file</span>
+<span class="sd">        dictionary of polars dataframes</span>
+<span class="sd">        logger: logger</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="_BsonFile.file"><a class="viewcode-back" href="../../autoapi/bson/file/index.html#bson.file._BsonFile.file">[docs]</a>    <span class="n">file</span><span class="p">:</span> <span class="n">Path</span></div>
-<div class="viewcode-block" id="_BsonFile.data"><a class="viewcode-back" href="../../autoapi/bson/file/index.html#bson.file._BsonFile.data">[docs]</a>    <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="kc">None</span></div>
-
-    <span class="nd">@property</span>
-<div class="viewcode-block" id="_BsonFile.name"><a class="viewcode-back" href="../../autoapi/bson/file/index.html#bson.file._BsonFile.name">[docs]</a>    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">to_binary</span><span class="p">(</span><span class="n">matrix</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Name of the file.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">stem</span></div>
+<span class="sd">        byte-stream of a frame</span>
 
-    <span class="nd">@property</span>
-<div class="viewcode-block" id="_BsonFile.parent"><a class="viewcode-back" href="../../autoapi/bson/file/index.html#bson.file._BsonFile.parent">[docs]</a>    <span class="k">def</span> <span class="nf">parent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Parent of the file (e.g. path).</span>
+<span class="sd">        Args:</span>
+<span class="sd">            matrix: the frame converted to ipc</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            the bytestream</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">parent</span></div></div>
+
+        <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span> <span class="k">as</span> <span class="n">buffer</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+
+                <span class="n">arrays</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="n">pa</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>  <span class="c1"># Create one arrow array per row</span>
+                    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">matrix</span>
+                <span class="p">]</span>
+
+                <span class="n">table</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="o">.</span><span class="n">from_arrays</span><span class="p">(</span>
+                    <span class="n">arrays</span><span class="p">,</span>
+                    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">arrays</span><span class="p">)[</span><span class="mi">0</span><span class="p">])]</span>
+                    <span class="c1"># give name to each row</span>
+                <span class="p">)</span>
+
+                <span class="n">pq</span><span class="o">.</span><span class="n">write_table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="n">compression</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Bson only supports numpy arrays&quot;</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">buffer</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
+
+    <span class="n">content</span> <span class="o">=</span> <span class="n">bson</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="n">name</span><span class="p">:</span> <span class="n">to_binary</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">dic</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">file</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">bson_file</span><span class="p">:</span>
+        <span class="n">bson_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">file</span></div>
 </pre></div>
 
            </div>
