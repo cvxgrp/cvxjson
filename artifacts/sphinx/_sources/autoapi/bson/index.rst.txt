@@ -41,7 +41,6 @@ Functions
    Write dictionary into bson file
 
    :param file: file
-   :param dictionary of polars dataframes:
-   :param logger: logger
+   :param dictionary of numpy arrays:
 
 

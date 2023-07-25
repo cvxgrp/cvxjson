@@ -328,7 +328,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -344,6 +346,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-a-dictionary-of-numpy-arrays">Generate a dictionary of numpy arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#json">json</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bson">bson</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -357,11 +369,52 @@ document.write(`
 <h1>cvxjson<a class="headerlink" href="#cvxjson" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cvx.json</span> <span class="kn">import</span> <span class="n">read_json</span><span class="p">,</span> <span class="n">write_json</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">cvx.json</span> <span class="kn">import</span> <span class="n">read_json</span><span class="p">,</span> <span class="n">write_json</span>
+<span class="kn">from</span> <span class="nn">cvx.bson</span> <span class="kn">import</span> <span class="n">read_bson</span><span class="p">,</span> <span class="n">write_bson</span>
 </pre></div>
 </div>
 </div>
 </div>
+<section id="generate-a-dictionary-of-numpy-arrays">
+<h2>Generate a dictionary of numpy arrays<a class="headerlink" href="#generate-a-dictionary-of-numpy-arrays" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">),</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">)}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="json">
+<h2>json<a class="headerlink" href="#json" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">write_json</span><span class="p">(</span><span class="s2">&quot;test.json&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">recovered</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;test.json&quot;</span><span class="p">))</span>
+
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">],</span> <span class="n">recovered</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">],</span> <span class="n">recovered</span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="bson">
+<h2>bson<a class="headerlink" href="#bson" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">write_bson</span><span class="p">(</span><span class="s2">&quot;test.bson&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">recovered</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">read_bson</span><span class="p">(</span><span class="s2">&quot;test.bson&quot;</span><span class="p">))</span>
+
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">],</span> <span class="n">recovered</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">],</span> <span class="n">recovered</span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -373,16 +426,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "cvxsimulator"
+            mode: "cvxjson"
         },
         kernelOptions: {
-            name: "cvxsimulator",
+            name: "cvxjson",
             path: "./docs/notebooks"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'cvxsimulator'</script>
+    <script>kernelName = 'cvxjson'</script>
 
                 </article>
               
@@ -422,6 +475,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-a-dictionary-of-numpy-arrays">Generate a dictionary of numpy arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#json">json</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bson">bson</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
