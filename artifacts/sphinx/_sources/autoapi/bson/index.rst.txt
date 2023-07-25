@@ -13,3 +13,35 @@ Submodules
    file/index.rst
 
 
+Package Contents
+----------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   bson.read_bson
+   bson.write_bson
+
+
+
+.. py:function:: read_bson(file: pathlib.Path)
+
+   Read a bson file and prepare the bson_document needed
+
+   :param file:
+
+   :returns: a bson-document
+
+
+.. py:function:: write_bson(file: pathlib.Path, data, compression='zstd')
+
+   Write dictionary into bson file
+
+   :param file: file
+   :param dictionary of polars dataframes:
+   :param logger: logger
+
+
