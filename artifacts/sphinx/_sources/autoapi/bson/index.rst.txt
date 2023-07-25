@@ -1,0 +1,16 @@
+:py:mod:`bson`
+==============
+
+.. py:module:: bson
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   file/index.rst
+   io/index.rst
+
+

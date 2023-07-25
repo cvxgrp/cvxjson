@@ -1,0 +1,76 @@
+:py:mod:`bson.file`
+===================
+
+.. py:module:: bson.file
+
+.. autoapi-nested-parse::
+
+   Dataclass to simplify dealing with bson files.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   bson.file._BsonFile
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   bson.file.build_bson
+
+
+
+.. py:function:: build_bson(file)
+
+   Construct the frozen Dataclass for a BsonFile with this builder.
+
+   :param file: Path to *.bson file.
+
+   :returns: _BsonFile object.
+
+
+.. py:class:: _BsonFile
+
+   A BsonFile contains the keys meta, tables and timeseries.
+
+   .. attribute:: file
+
+      Path to *.bson file.
+
+   .. attribute:: data
+
+      Dict with data stored in a file.
+
+   .. py:attribute:: file
+      :annotation: :pathlib.Path
+
+      
+
+   .. py:attribute:: data
+      :annotation: :Dict
+
+      
+
+   .. py:method:: name(self)
+      :property:
+
+      Name of the file.
+
+
+   .. py:method:: parent(self)
+      :property:
+
+      Parent of the file (e.g. path).
+
+
+

@@ -1,0 +1,30 @@
+:py:mod:`json.file`
+===================
+
+.. py:module:: json.file
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   json.file.read_json
+   json.file.write_json
+
+
+
+.. py:function:: read_json(json_file)
+
+   Read a json file and return a generator of key-value pairs
+
+
+.. py:function:: write_json(json_file, data)
+
+   Write a json file with the data
+
+
