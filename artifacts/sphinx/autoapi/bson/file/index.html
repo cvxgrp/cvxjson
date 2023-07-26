@@ -99,40 +99,63 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bson.file.read_bson" title="bson.file.read_bson"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_bson</span></code></a>(file: pathlib.Path)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bson.file.read_bson" title="bson.file.read_bson"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_bson</span></code></a>(file: str | bytes | PathLike[str] | PathLike[bytes] | int)</p></td>
 <td><p>Read a bson file and prepare the bson_document needed</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bson.file.write_bson" title="bson.file.write_bson"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_bson</span></code></a>(file: pathlib.Path, data)</p></td>
-<td><p>Write dictionary into bson file</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bson.file.write_bson" title="bson.file.write_bson"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_bson</span></code></a>(file: str | bytes | PathLike[str] | PathLike[bytes] | int, data: Dict[str, np.ndarray])</p></td>
+<td><p>Write dictionary into a bson file</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bson.file.to_bson" title="bson.file.to_bson"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_bson</span></code></a>(data: Dict[str, np.ndarray])</p></td>
+<td><p>Convert a dictionary of numpy arrays into a bson string</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bson.file.from_bson" title="bson.file.from_bson"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_bson</span></code></a>(bson_str)</p></td>
+<td><p>Convert a bson string into a dictionary of numpy arrays</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py function">
 <dt class="sig sig-object py" id="bson.file.read_bson">
-<span class="sig-prename descclassname"><span class="pre">bson.file.</span></span><span class="sig-name descname"><span class="pre">read_bson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pathlib.Path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/bson/file.html#read_bson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bson.file.read_bson" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">bson.file.</span></span><span class="sig-name descname"><span class="pre">read_bson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/bson/file.html#read_bson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bson.file.read_bson" title="Permalink to this definition"></a></dt>
 <dd><p>Read a bson file and prepare the bson_document needed</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>file</strong> – </p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>a bson-document</p>
+<dd class="field-even"><p>a generator of key-value pairs, where the value is a numpy array and key is its name</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bson.file.write_bson">
-<span class="sig-prename descclassname"><span class="pre">bson.file.</span></span><span class="sig-name descname"><span class="pre">write_bson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pathlib.Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/bson/file.html#write_bson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bson.file.write_bson" title="Permalink to this definition"></a></dt>
-<dd><p>Write dictionary into bson file</p>
+<span class="sig-prename descclassname"><span class="pre">bson.file.</span></span><span class="sig-name descname"><span class="pre">write_bson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">np.ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/bson/file.html#write_bson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bson.file.write_bson" title="Permalink to this definition"></a></dt>
+<dd><p>Write dictionary into a bson file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>file</strong> – file</p></li>
-<li><p><strong>arrays</strong> (<em>dictionary of numpy</em>) – </p></li>
+<li><p><strong>data</strong> – dictionary of numpy arrays</p></li>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bson.file.to_bson">
+<span class="sig-prename descclassname"><span class="pre">bson.file.</span></span><span class="sig-name descname"><span class="pre">to_bson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">np.ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/bson/file.html#to_bson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bson.file.to_bson" title="Permalink to this definition"></a></dt>
+<dd><p>Convert a dictionary of numpy arrays into a bson string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – dictionary of numpy arrays</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bson.file.from_bson">
+<span class="sig-prename descclassname"><span class="pre">bson.file.</span></span><span class="sig-name descname"><span class="pre">from_bson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bson_str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/bson/file.html#from_bson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bson.file.from_bson" title="Permalink to this definition"></a></dt>
+<dd><p>Convert a bson string into a dictionary of numpy arrays</p>
 </dd></dl>
 
 </section>
