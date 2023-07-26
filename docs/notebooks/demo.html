@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>cvxjson &#8212; cvxjson</title>
+    <title>cvxbson &#8212; cvxbson</title>
   
   
   
@@ -138,7 +138,7 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
-    <p class="title logo__title">cvxjson</p>
+    <p class="title logo__title">cvxbson</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -147,13 +147,13 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../index.html">
-                    cvxjson
+                    cvxbson
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../nb.html">Notebooks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">cvxjson</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">cvxbson</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
@@ -212,7 +212,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/cvxgrp/cvxjson" target="_blank"
+      <li><a href="https://github.com/cvxgrp/cvxbson" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -229,7 +229,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/cvxgrp/cvxjson/issues/new?title=Issue%20on%20page%20%2Fdocs/notebooks/demo.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/cvxgrp/cvxbson/issues/new?title=Issue%20on%20page%20%2Fdocs/notebooks/demo.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -341,7 +341,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>cvxjson</h1>
+    <h1>cvxbson</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -351,7 +351,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-a-dictionary-of-numpy-arrays">Generate a dictionary of numpy arrays</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#json">json</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bson">bson</a></li>
 </ul>
@@ -365,8 +364,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="cvxjson">
-<h1>cvxjson<a class="headerlink" href="#cvxjson" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="cvxbson">
+<h1>cvxbson<a class="headerlink" href="#cvxbson" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -377,8 +376,13 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="generate-a-dictionary-of-numpy-arrays">
-<h2>Generate a dictionary of numpy arrays<a class="headerlink" href="#generate-a-dictionary-of-numpy-arrays" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Generate a dictionary of numpy arrays</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">),</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">)}</span>
@@ -386,7 +390,6 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
 <section id="json">
 <h2>json<a class="headerlink" href="#json" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -426,16 +429,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "cvxjson"
+            mode: "cvxbson"
         },
         kernelOptions: {
-            name: "cvxjson",
+            name: "cvxbson",
             path: "./docs/notebooks"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'cvxjson'</script>
+    <script>kernelName = 'cvxbson'</script>
 
                 </article>
               
@@ -484,7 +487,6 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-a-dictionary-of-numpy-arrays">Generate a dictionary of numpy arrays</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#json">json</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bson">bson</a></li>
 </ul>

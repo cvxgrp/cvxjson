@@ -27,16 +27,16 @@ Functions
 
 
 
-.. py:function:: read_bson(file: str | bytes | PathLike[str] | PathLike[bytes] | int)
+.. py:function:: read_bson(file: str | bytes | PathLike[str] | PathLike[bytes] | int) -> Dict[str, numpy.ndarray]
 
    Read a bson file and prepare the bson_document needed
 
    :param file:
 
-   :returns: a generator of key-value pairs, where the value is a numpy array and key is its name
+   :returns: A dictionary of numpy arrays
 
 
-.. py:function:: write_bson(file: str | bytes | PathLike[str] | PathLike[bytes] | int, data: Dict[str, numpy.ndarray])
+.. py:function:: write_bson(file: str | bytes | PathLike[str] | PathLike[bytes] | int, data: Dict[str, numpy.ndarray]) -> int
 
    Write dictionary into a bson file
 

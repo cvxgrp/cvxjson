@@ -3,6 +3,11 @@
 
 .. py:module:: json.file
 
+.. autoapi-nested-parse::
+
+   Tools to support working with json files
+
+
 
 Module Contents
 ---------------

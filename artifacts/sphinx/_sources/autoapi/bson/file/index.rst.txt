@@ -5,7 +5,7 @@
 
 .. autoapi-nested-parse::
 
-   Tools to support working with bson files
+   Tools to support working with bson files and strings
 
 
 
@@ -25,16 +25,16 @@ Functions
 
 
 
-.. py:function:: read_bson(file: str | bytes | PathLike[str] | PathLike[bytes] | int)
+.. py:function:: read_bson(file: str | bytes | PathLike[str] | PathLike[bytes] | int) -> Dict[str, numpy.ndarray]
 
    Read a bson file and prepare the bson_document needed
 
    :param file:
 
-   :returns: a generator of key-value pairs, where the value is a numpy array and key is its name
+   :returns: A dictionary of numpy arrays
 
 
-.. py:function:: write_bson(file: str | bytes | PathLike[str] | PathLike[bytes] | int, data: Dict[str, numpy.ndarray])
+.. py:function:: write_bson(file: str | bytes | PathLike[str] | PathLike[bytes] | int, data: Dict[str, numpy.ndarray]) -> int
 
    Write dictionary into a bson file
 
@@ -42,14 +42,14 @@ Functions
    :param data: dictionary of numpy arrays
 
 
-.. py:function:: to_bson(data: Dict[str, numpy.ndarray])
+.. py:function:: to_bson(data: Dict[str, numpy.ndarray]) -> bytes
 
    Convert a dictionary of numpy arrays into a bson string
 
    :param data: dictionary of numpy arrays
 
 
-.. py:function:: from_bson(bson_str)
+.. py:function:: from_bson(bson_str: bytes) -> Dict[str, numpy.ndarray]
 
    Convert a bson string into a dictionary of numpy arrays
 
