@@ -36,7 +36,7 @@ Functions
    :returns: a generator of key-value pairs, where the value is a numpy array and key is its name
 
 
-.. py:function:: write_bson(file: str | bytes | PathLike[str] | PathLike[bytes] | int, data: Dict[str, np.ndarray])
+.. py:function:: write_bson(file: str | bytes | PathLike[str] | PathLike[bytes] | int, data: Dict[str, numpy.ndarray])
 
    Write dictionary into a bson file
 

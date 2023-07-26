@@ -34,7 +34,7 @@ Functions
    :returns: a generator of key-value pairs, where the value is a numpy array and key is its name
 
 
-.. py:function:: write_bson(file: str | bytes | PathLike[str] | PathLike[bytes] | int, data: Dict[str, np.ndarray])
+.. py:function:: write_bson(file: str | bytes | PathLike[str] | PathLike[bytes] | int, data: Dict[str, numpy.ndarray])
 
    Write dictionary into a bson file
 
@@ -42,7 +42,7 @@ Functions
    :param data: dictionary of numpy arrays
 
 
-.. py:function:: to_bson(data: Dict[str, np.ndarray])
+.. py:function:: to_bson(data: Dict[str, numpy.ndarray])
 
    Convert a dictionary of numpy arrays into a bson string
 
