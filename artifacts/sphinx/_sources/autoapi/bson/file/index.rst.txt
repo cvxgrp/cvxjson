@@ -25,7 +25,32 @@ Functions
 
 
 
-.. py:function:: read_bson(file: str | bytes | PathLike[str] | PathLike[bytes] | int) -> Dict[str, numpy.typing.NDArray[Any]]
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   bson.file.FILE
+   bson.file.MATRIX
+   bson.file.MATRICES
+
+
+.. py:data:: FILE
+   
+
+   
+
+.. py:data:: MATRIX
+   
+
+   
+
+.. py:data:: MATRICES
+   
+
+   
+
+.. py:function:: read_bson(file: FILE) -> MATRICES
 
    Read a bson file and prepare the bson_document needed
 
@@ -34,7 +59,7 @@ Functions
    :returns: A dictionary of numpy arrays
 
 
-.. py:function:: write_bson(file: str | bytes | PathLike[str] | PathLike[bytes] | int, data: Dict[str, numpy.typing.NDArray[Any]]) -> int
+.. py:function:: write_bson(file: FILE, data: MATRICES) -> int
 
    Write dictionary into a bson file
 
@@ -42,14 +67,14 @@ Functions
    :param data: dictionary of numpy arrays
 
 
-.. py:function:: to_bson(data: Dict[str, numpy.typing.NDArray[Any]]) -> bytes
+.. py:function:: to_bson(data: MATRICES) -> bytes
 
    Convert a dictionary of numpy arrays into a bson string
 
    :param data: dictionary of numpy arrays
 
 
-.. py:function:: from_bson(bson_str: bytes) -> Dict[str, numpy.typing.NDArray[Any]]
+.. py:function:: from_bson(bson_str: bytes) -> MATRICES
 
    Convert a bson string into a dictionary of numpy arrays
 
