@@ -39,7 +39,7 @@ Attributes
    
 
 .. py:data:: MATRIX
-   
+   :annotation: :TypeAlias
 
    
 
