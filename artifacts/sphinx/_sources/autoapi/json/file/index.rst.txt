@@ -23,12 +23,37 @@ Functions
 
 
 
-.. py:function:: read_json(json_file: str | bytes | PathLike[str] | PathLike[bytes] | int) -> Dict[str, Any]
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   json.file.FILE
+   json.file.MATRIX
+   json.file.DATA
+
+
+.. py:data:: FILE
+   
+
+   
+
+.. py:data:: MATRIX
+   
+
+   
+
+.. py:data:: DATA
+   
+
+   
+
+.. py:function:: read_json(json_file: FILE) -> DATA
 
    Read a json file and return a genaerator of key-value pairs
 
 
-.. py:function:: write_json(json_file: str | bytes | PathLike[str] | PathLike[bytes] | int, data: Dict[str, Any]) -> None
+.. py:function:: write_json(json_file: FILE, data: DATA) -> None
 
    Write a json file with the data
 

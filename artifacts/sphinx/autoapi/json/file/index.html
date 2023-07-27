@@ -98,23 +98,58 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#json.file.read_json" title="json.file.read_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_json</span></code></a>(json_file: str | bytes | PathLike[str] | PathLike[bytes] | int) → Dict[str, Any]</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json.file.read_json" title="json.file.read_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_json</span></code></a>(json_file: FILE) → DATA</p></td>
 <td><p>Read a json file and return a genaerator of key-value pairs</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#json.file.write_json" title="json.file.write_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_json</span></code></a>(json_file: str | bytes | PathLike[str] | PathLike[bytes] | int, data: Dict[str, Any]) → None</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#json.file.write_json" title="json.file.write_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_json</span></code></a>(json_file: FILE, data: DATA) → None</p></td>
 <td><p>Write a json file with the data</p></td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json.file.FILE" title="json.file.FILE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FILE</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#json.file.MATRIX" title="json.file.MATRIX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATRIX</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#json.file.DATA" title="json.file.DATA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DATA</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt class="sig sig-object py" id="json.file.FILE">
+<span class="sig-prename descclassname"><span class="pre">json.file.</span></span><span class="sig-name descname"><span class="pre">FILE</span></span><a class="reference internal" href="../../../_modules/json/file.html#FILE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#json.file.FILE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="json.file.MATRIX">
+<span class="sig-prename descclassname"><span class="pre">json.file.</span></span><span class="sig-name descname"><span class="pre">MATRIX</span></span><a class="reference internal" href="../../../_modules/json/file.html#MATRIX"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#json.file.MATRIX" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="json.file.DATA">
+<span class="sig-prename descclassname"><span class="pre">json.file.</span></span><span class="sig-name descname"><span class="pre">DATA</span></span><a class="reference internal" href="../../../_modules/json/file.html#DATA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#json.file.DATA" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="json.file.read_json">
-<span class="sig-prename descclassname"><span class="pre">json.file.</span></span><span class="sig-name descname"><span class="pre">read_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../_modules/json/file.html#read_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#json.file.read_json" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">json.file.</span></span><span class="sig-name descname"><span class="pre">read_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FILE</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DATA</span></span></span><a class="reference internal" href="../../../_modules/json/file.html#read_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#json.file.read_json" title="Permalink to this definition"></a></dt>
 <dd><p>Read a json file and return a genaerator of key-value pairs</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="json.file.write_json">
-<span class="sig-prename descclassname"><span class="pre">json.file.</span></span><span class="sig-name descname"><span class="pre">write_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/json/file.html#write_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#json.file.write_json" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">json.file.</span></span><span class="sig-name descname"><span class="pre">write_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FILE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DATA</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/json/file.html#write_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#json.file.write_json" title="Permalink to this definition"></a></dt>
 <dd><p>Write a json file with the data</p>
 </dd></dl>
 
