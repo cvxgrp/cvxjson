@@ -41,7 +41,7 @@ Attributes
    
 
 .. py:data:: MATRIX
-   :annotation: :TypeAlias
+   :annotation: :typing_extensions.TypeAlias
 
    
 
