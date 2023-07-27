@@ -23,12 +23,12 @@ Functions
 
 
 
-.. py:function:: read_json(json_file)
+.. py:function:: read_json(json_file: str | bytes | PathLike[str] | PathLike[bytes] | int) -> Dict[str, Any]
 
-   Read a json file and return a generator of key-value pairs
+   Read a json file and return a genaerator of key-value pairs
 
 
-.. py:function:: write_json(json_file, data)
+.. py:function:: write_json(json_file: str | bytes | PathLike[str] | PathLike[bytes] | int, data: Dict[str, Any]) -> None
 
    Write a json file with the data
 

@@ -78,7 +78,7 @@
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
 
 <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">PathLike</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pyarrow</span> <span class="k">as</span> <span class="nn">pa</span>
@@ -88,7 +88,7 @@
 
 <div class="viewcode-block" id="read_bson"><a class="viewcode-back" href="../../autoapi/bson/index.html#bson.file.read_bson">[docs]</a><span class="k">def</span> <span class="nf">read_bson</span><span class="p">(</span>
     <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">bytes</span> <span class="o">|</span> <span class="n">PathLike</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="n">PathLike</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">typing</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">Any</span><span class="p">]]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Read a bson file and prepare the bson_document needed</span>
 
@@ -107,7 +107,7 @@
 
 <div class="viewcode-block" id="write_bson"><a class="viewcode-back" href="../../autoapi/bson/index.html#bson.file.write_bson">[docs]</a><span class="k">def</span> <span class="nf">write_bson</span><span class="p">(</span>
     <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">bytes</span> <span class="o">|</span> <span class="n">PathLike</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="n">PathLike</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">typing</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">Any</span><span class="p">]],</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Write dictionary into a bson file</span>
@@ -121,7 +121,7 @@
         <span class="k">return</span> <span class="n">bson_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">bson_str</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="to_bson"><a class="viewcode-back" href="../../autoapi/bson/file/index.html#bson.file.to_bson">[docs]</a><span class="k">def</span> <span class="nf">to_bson</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<div class="viewcode-block" id="to_bson"><a class="viewcode-back" href="../../autoapi/bson/file/index.html#bson.file.to_bson">[docs]</a><span class="k">def</span> <span class="nf">to_bson</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">typing</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert a dictionary of numpy arrays into a bson string</span>
 
@@ -129,20 +129,22 @@
 <span class="sd">        data: dictionary of numpy arrays</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">_encode_tensor</span><span class="p">(</span><span class="n">tensor</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_encode_tensor</span><span class="p">(</span><span class="n">tensor</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
         <span class="n">buffer</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">BufferOutputStream</span><span class="p">()</span>
         <span class="n">pa</span><span class="o">.</span><span class="n">ipc</span><span class="o">.</span><span class="n">write_tensor</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">buffer</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span><span class="o">.</span><span class="n">to_pybytes</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">buffer</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span><span class="o">.</span><span class="n">to_pybytes</span><span class="p">())</span>
 
-    <span class="k">return</span> <span class="n">bson</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span>
-        <span class="p">{</span>
-            <span class="n">name</span><span class="p">:</span> <span class="n">_encode_tensor</span><span class="p">(</span><span class="n">pa</span><span class="o">.</span><span class="n">Tensor</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="n">matrix</span><span class="p">))</span>
-            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">matrix</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-        <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">bytes</span><span class="p">(</span>
+        <span class="n">bson</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="n">name</span><span class="p">:</span> <span class="n">_encode_tensor</span><span class="p">(</span><span class="n">pa</span><span class="o">.</span><span class="n">Tensor</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="n">matrix</span><span class="p">))</span>
+                <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">matrix</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
     <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="from_bson"><a class="viewcode-back" href="../../autoapi/bson/file/index.html#bson.file.from_bson">[docs]</a><span class="k">def</span> <span class="nf">from_bson</span><span class="p">(</span><span class="n">bson_str</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<div class="viewcode-block" id="from_bson"><a class="viewcode-back" href="../../autoapi/bson/file/index.html#bson.file.from_bson">[docs]</a><span class="k">def</span> <span class="nf">from_bson</span><span class="p">(</span><span class="n">bson_str</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">typing</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">Any</span><span class="p">]]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert a bson string into a dictionary of numpy arrays&quot;&quot;&quot;</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">bson</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">bson_str</span><span class="p">)</span>
 
