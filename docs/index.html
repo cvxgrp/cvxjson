@@ -350,6 +350,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ipc">IPC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demo">Demo</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poetry">Poetry</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel">Kernel</a></li>
 </ul>
@@ -365,6 +367,47 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="cvxbson">
 <h1>cvxbson<a class="headerlink" href="#cvxbson" title="Permalink to this heading">#</a></h1>
+<p><a class="reference external" href="https://badge.fury.io/py/cvxbson"><img alt="PyPI version" src="https://badge.fury.io/py/cvxbson.svg" /></a>
+<a class="reference external" href="https://github.com/cvxgrp/cvxbson/blob/master/LICENSE"><img alt="Apache 2.0License" src="https://img.shields.io/badge/License-APACHEv2-brightgreen.svg" /></a>
+<a class="reference external" href="https://pypi.python.org/pypi/cvxbson/"><img alt="PyPI downloadmonth" src="https://img.shields.io/pypi/dm/cvxbson.svg" /></a>
+<a class="reference external" href="https://coveralls.io/github/cvxgrp/cvxbson?branch=main"><img alt="CoverageStatus" src="https://coveralls.io/repos/github/cvxgrp/cvxbson/badge.png?branch=main" /></a></p>
+<section id="ipc">
+<h2>IPC<a class="headerlink" href="#ipc" title="Permalink to this heading">#</a></h2>
+<p>IPC stands for InterProcess Communication. It is a mechanism that allows to share
+data between processes. A traditional way to do so is to use json files.
+Json files are rather flexible and can be used to share data between different
+programming languages. However, they are not very efficient.</p>
+<p>Here we use their binary counterpart, bson files. Bson files are much more efficient
+but somewhat lack the flexibility of json files. Here we rely on the <a class="reference external" href="https://pypi.org/project/bson/">bson</a>
+package to read and write bson files. We are interested in parsing dictionaries
+of numpy arrays as fast as possible. Our current implementation is converting
+numpy arrays to pyarrow tensors and then to bson.</p>
+<p>There might be faster ways to achieve this goal and we are open to suggestions
+and pull requests.</p>
+<p>We recommend using json files to transfer configurations and small amounts of data.
+Bson files can then be used to transfer large matrices. A coexistence is possible
+and encouraged.</p>
+</section>
+<section id="demo">
+<h2>Demo<a class="headerlink" href="#demo" title="Permalink to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">cvx.bson</span> <span class="kn">import</span> <span class="n">read_bson</span><span class="p">,</span> <span class="n">write_bson</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">),</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">)}</span>
+
+<span class="n">write_bson</span><span class="p">(</span><span class="s2">&quot;test.bson&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">recovered</span> <span class="o">=</span> <span class="n">read_bson</span><span class="p">(</span><span class="s2">&quot;test.bson&quot;</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">],</span> <span class="n">recovered</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">],</span> <span class="n">recovered</span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>We have also implemented the same functionality in for json files but would advise
+against using it. It is much slower and less efficient.</p>
+<p>You may want to avoid the explicit construction of files.
+It is possible to work directly with bson strings. We provide methods for that, too.</p>
+</section>
 <section id="poetry">
 <h2>Poetry<a class="headerlink" href="#poetry" title="Permalink to this heading">#</a></h2>
 <p>We assume you share already the love for <a class="reference external" href="https://python-poetry.org">Poetry</a>. Once you have installed poetry you can perform</p>
@@ -443,6 +486,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ipc">IPC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demo">Demo</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poetry">Poetry</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel">Kernel</a></li>
 </ul>
