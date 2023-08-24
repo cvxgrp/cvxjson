@@ -1,0 +1,10 @@
+bson 0.5.10 BSON codec for Python
+├── python-dateutil >=2.4.0
+│   └── six >=1.5 
+└── six >=1.9.0
+numpy 1.24.4 Fundamental package for array computing in Python
+numpyencoder 0.3.0 Python JSON encoder for handling Numpy data types.
+└── numpy >=1.14.3
+pyarrow 12.0.1 Python library for Apache Arrow
+└── numpy >=1.16.6
+typing-extensions 4.7.1 Backported and Experimental Type Hints for Python 3.7+
