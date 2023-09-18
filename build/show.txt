@@ -7,4 +7,4 @@ numpyencoder 0.3.0 Python JSON encoder for handling Numpy data types.
 └── numpy >=1.14.3
 pyarrow 13.0.0 Python library for Apache Arrow
 └── numpy >=1.16.6
-typing-extensions 4.7.1 Backported and Experimental Type Hints for Python 3.7+
+typing-extensions 4.8.0 Backported and Experimental Type Hints for Python 3.8+
