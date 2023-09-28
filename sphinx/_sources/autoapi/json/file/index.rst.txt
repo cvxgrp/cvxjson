@@ -34,17 +34,15 @@ Attributes
 
 
 .. py:data:: FILE
-   
 
    
 
 .. py:data:: MATRIX
-   :annotation: :typing_extensions.TypeAlias
+   :type: typing_extensions.TypeAlias
 
    
 
 .. py:data:: DATA
-   
 
    
 
