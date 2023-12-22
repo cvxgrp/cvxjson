@@ -18,7 +18,7 @@ Functions
 
 
 
-.. py:function:: encode(data: Union[numpy.ndarray, pandas.DataFrame]) -> Any
+.. py:function:: encode(data: Union[numpy.ndarray, pandas.DataFrame, polars.DataFrame]) -> Any
 
    Encode a numpy array or a pandas DataFrame
 
@@ -27,7 +27,7 @@ Functions
    Returns: object converted into bytes
 
 
-.. py:function:: decode(data: bytes) -> Union[numpy.ndarray, pandas.DataFrame]
+.. py:function:: decode(data: bytes) -> Union[numpy.ndarray, pandas.DataFrame, polars.DataFrame]
 
    Decode the bytes back into numpy array or pandas DataFrame
 
