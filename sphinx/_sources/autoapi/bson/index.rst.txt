@@ -10,37 +10,8 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
+   dataclass/index.rst
    file/index.rst
-
-
-Package Contents
-----------------
-
-
-Functions
-~~~~~~~~~
-
-.. autoapisummary::
-
-   bson.read_bson
-   bson.write_bson
-
-
-
-.. py:function:: read_bson(file: FILE) -> MATRICES
-
-   Read a bson file and prepare the bson_document needed
-
-   :param file:
-
-   :returns: A dictionary of numpy arrays
-
-
-.. py:function:: write_bson(file: FILE, data: MATRICES) -> int
-
-   Write dictionary into a bson file
-
-   :param file: file
-   :param data: dictionary of numpy arrays
+   io/index.rst
 
 

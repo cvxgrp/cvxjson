@@ -1,0 +1,30 @@
+:py:mod:`bson.dataclass`
+========================
+
+.. py:module:: bson.dataclass
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   bson.dataclass.Data
+
+
+
+
+.. py:class:: Data
+
+
+   .. py:method:: to_bson(file: cvx.bson.file.FILE) -> int
+
+
+   .. py:method:: from_bson(file: cvx.bson.file.FILE) -> Any
+      :classmethod:
+
+
+
