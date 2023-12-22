@@ -27,4 +27,11 @@ Classes
       :classmethod:
 
 
+   .. py:method:: keys()
+      :classmethod:
+
+
+   .. py:method:: items()
+
+
 
