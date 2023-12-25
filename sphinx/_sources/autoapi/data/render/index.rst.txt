@@ -1,0 +1,27 @@
+:py:mod:`data.render`
+=====================
+
+.. py:module:: data.render
+
+.. autoapi-nested-parse::
+
+   Create a dataclass from a template
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   data.render.render
+
+
+
+.. py:function:: render(names, strategy)
+
+

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Coverage for cvx/json/__init__.py: 100%</title>
+    <title>Coverage for cvx/data/render.py: 0%</title>
     <link rel="icon" sizes="32x32" href="favicon_32.png">
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" src="coverage_html.js" defer></script>
@@ -11,8 +11,8 @@
 <header>
     <div class="content">
         <h1>
-            <span class="text">Coverage for </span><b>cvx/json/__init__.py</b>:
-            <span class="pc_cov">100%</span>
+            <span class="text">Coverage for </span><b>cvx/data/render.py</b>:
+            <span class="pc_cov">0%</span>
         </h1>
         <aside id="help_panel_wrapper">
             <input id="help_panel_state" type="checkbox">
@@ -54,15 +54,15 @@
             </div>
         </aside>
         <h2>
-            <span class="text">1 statements &nbsp;</span>
-            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">1<span class="text"> run</span></button>
-            <button type="button" class="mis show_mis button_toggle_mis" value="mis" data-shortcut="m" title="Toggle lines missing">0<span class="text"> missing</span></button>
+            <span class="text">7 statements &nbsp;</span>
+            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">0<span class="text"> run</span></button>
+            <button type="button" class="mis show_mis button_toggle_mis" value="mis" data-shortcut="m" title="Toggle lines missing">7<span class="text"> missing</span></button>
             <button type="button" class="exc show_exc button_toggle_exc" value="exc" data-shortcut="x" title="Toggle lines excluded">0<span class="text"> excluded</span></button>
         </h2>
         <p class="text">
-            <a id="prevFileLink" class="nav" href="d_7de7a1ca1a878ebe_render_py.html">&#xab; prev</a> &nbsp; &nbsp;
+            <a id="prevFileLink" class="nav" href="d_7de7a1ca1a878ebe___init___py.html">&#xab; prev</a> &nbsp; &nbsp;
             <a id="indexLink" class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
-            <a id="nextFileLink" class="nav" href="d_db3e1b589b013bf6_file_py.html">&#xbb; next</a>
+            <a id="nextFileLink" class="nav" href="d_db3e1b589b013bf6___init___py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.3.4">coverage.py v7.3.4</a>,
             created at 2023-12-25 07:20 +0000
@@ -93,14 +93,31 @@
     <p class="pln"><span class="n"><a id="t11" href="#t11">11</a></span><span class="t"><span class="com">#    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t12" href="#t12">12</a></span><span class="t"><span class="com">#    See the License for the specific language governing permissions and</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t13" href="#t13">13</a></span><span class="t"><span class="com">#    limitations under the License.</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t14" href="#t14">14</a></span><span class="t"><span class="key">from</span> <span class="op">.</span><span class="nam">file</span> <span class="key">import</span> <span class="nam">read_json</span><span class="op">,</span> <span class="nam">write_json</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t14" href="#t14">14</a></span><span class="t"><span class="str">"""Create a dataclass from a template"""</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t15" href="#t15">15</a></span><span class="t"><span class="key">from</span> <span class="nam">pathlib</span> <span class="key">import</span> <span class="nam">Path</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t16" href="#t16">16</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t17" href="#t17">17</a></span><span class="t"><span class="key">from</span> <span class="nam">jinja2</span> <span class="key">import</span> <span class="nam">Template</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t18" href="#t18">18</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t19" href="#t19">19</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t20" href="#t20">20</a></span><span class="t"><span class="key">def</span> <span class="nam">render</span><span class="op">(</span><span class="nam">names</span><span class="op">,</span> <span class="nam">strategy</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t21" href="#t21">21</a></span><span class="t">    <span class="com"># gain this dictionary through reflection</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t22" href="#t22">22</a></span><span class="t">    <span class="com"># every table has a shortname, e.g. prices and a longer descriptive name</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t23" href="#t23">23</a></span><span class="t">    <span class="com"># we use the shortname to name the variable refering to the code</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t24" href="#t24">24</a></span><span class="t">    <span class="com"># names = {"A": "AAA", "B": "BBB", "C": "CCC"}</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t25" href="#t25">25</a></span><span class="t">    <span class="nam">path</span> <span class="op">=</span> <span class="nam">Path</span><span class="op">(</span><span class="nam">__file__</span><span class="op">)</span><span class="op">.</span><span class="nam">parent</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t26" href="#t26">26</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t27" href="#t27">27</a></span><span class="t">    <span class="com"># open the template</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t28" href="#t28">28</a></span><span class="t">    <span class="nam">template</span> <span class="op">=</span> <span class="nam">Template</span><span class="op">(</span><span class="nam">open</span><span class="op">(</span><span class="nam">path</span> <span class="op">/</span> <span class="str">"data_api.py.jinja2"</span><span class="op">,</span> <span class="nam">encoding</span><span class="op">=</span><span class="str">"utf-8"</span><span class="op">)</span><span class="op">.</span><span class="nam">read</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t29" href="#t29">29</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t30" href="#t30">30</a></span><span class="t">    <span class="com"># we copy &amp; paste the new class into a new file</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t31" href="#t31">31</a></span><span class="t">    <span class="key">return</span> <span class="nam">template</span><span class="op">.</span><span class="nam">render</span><span class="op">(</span><span class="nam">names</span><span class="op">=</span><span class="nam">names</span><span class="op">,</span> <span class="nam">strategy</span><span class="op">=</span><span class="nam">strategy</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
 </main>
 <footer>
     <div class="content">
         <p>
-            <a id="prevFileLink" class="nav" href="d_7de7a1ca1a878ebe_render_py.html">&#xab; prev</a> &nbsp; &nbsp;
+            <a id="prevFileLink" class="nav" href="d_7de7a1ca1a878ebe___init___py.html">&#xab; prev</a> &nbsp; &nbsp;
             <a id="indexLink" class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
-            <a id="nextFileLink" class="nav" href="d_db3e1b589b013bf6_file_py.html">&#xbb; next</a>
+            <a id="nextFileLink" class="nav" href="d_db3e1b589b013bf6___init___py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.3.4">coverage.py v7.3.4</a>,
             created at 2023-12-25 07:20 +0000
