@@ -4,7 +4,7 @@ bson 0.5.10 BSON codec for Python
 └── six >=1.9.0
 jinja2 3.1.2 A very fast and expressive template engine.
 └── markupsafe >=2.0
-numpy 1.26.2 Fundamental package for array computing in Python
+numpy 1.26.3 Fundamental package for array computing in Python
 numpyencoder 0.3.0 Python JSON encoder for handling Numpy data types.
 └── numpy >=1.14.3
 pandas 2.1.4 Powerful data structures for data analysis, time series, and statistics
