@@ -15,7 +15,7 @@ pandas 2.2.0 Powerful data structures for data analysis, time series, and statis
 │   └── six >=1.5 
 ├── pytz >=2020.1
 └── tzdata >=2022.7
-polars 0.20.6 Blazingly fast DataFrame library
+polars 0.20.7 Blazingly fast DataFrame library
 pyarrow 15.0.0 Python library for Apache Arrow
 └── numpy >=1.16.6,<2
 typing-extensions 4.9.0 Backported and Experimental Type Hints for Python 3.8+
