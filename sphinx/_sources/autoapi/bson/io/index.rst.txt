@@ -1,0 +1,38 @@
+:py:mod:`bson.io`
+=================
+
+.. py:module:: bson.io
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   bson.io.encode
+   bson.io.decode
+
+
+
+.. py:function:: encode(data: Union[numpy.ndarray, pandas.DataFrame, polars.DataFrame]) -> Any
+
+   Encode a numpy array or a pandas DataFrame
+
+   :param data: The numpy array or pandas DataFrame
+
+   Returns: object converted into bytes
+
+
+.. py:function:: decode(data: bytes) -> Union[numpy.ndarray, pandas.DataFrame, polars.DataFrame]
+
+   Decode the bytes back into numpy array or pandas DataFrame
+
+   :param data: bytes
+
+   :returns: The array or the frame
+
+

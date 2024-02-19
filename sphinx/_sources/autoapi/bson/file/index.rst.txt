@@ -1,0 +1,79 @@
+:py:mod:`bson.file`
+===================
+
+.. py:module:: bson.file
+
+.. autoapi-nested-parse::
+
+   Tools to support working with bson files and strings
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   bson.file.read_bson
+   bson.file.write_bson
+   bson.file.to_bson
+   bson.file.from_bson
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   bson.file.FILE
+   bson.file.MATRIX
+   bson.file.MATRICES
+
+
+.. py:data:: FILE
+
+   
+
+.. py:data:: MATRIX
+   :type: typing_extensions.TypeAlias
+
+   
+
+.. py:data:: MATRICES
+
+   
+
+.. py:function:: read_bson(file: FILE) -> MATRICES
+
+   Read a bson file and prepare the bson_document needed
+
+   :param file:
+
+   :returns: A dictionary of numpy arrays
+
+
+.. py:function:: write_bson(file: FILE, data: MATRICES) -> int
+
+   Write dictionary into a bson file
+
+   :param file: file
+   :param data: dictionary of numpy arrays
+
+
+.. py:function:: to_bson(data: MATRICES) -> bytes
+
+   Convert a dictionary of numpy arrays into a bson string
+
+   :param data: dictionary of numpy arrays
+
+
+.. py:function:: from_bson(bson_str: bytes) -> MATRICES
+
+   Convert a bson string into a dictionary of numpy arrays
+
+
