@@ -1,5 +1,5 @@
-:py:mod:`json.file`
-===================
+json.file
+=========
 
 .. py:module:: json.file
 
@@ -9,22 +9,8 @@
 
 
 
-Module Contents
----------------
-
-
-Functions
-~~~~~~~~~
-
-.. autoapisummary::
-
-   json.file.read_json
-   json.file.write_json
-
-
-
 Attributes
-~~~~~~~~~~
+----------
 
 .. autoapisummary::
 
@@ -33,18 +19,24 @@ Attributes
    json.file.DATA
 
 
+Functions
+---------
+
+.. autoapisummary::
+
+   json.file.read_json
+   json.file.write_json
+
+
+Module Contents
+---------------
+
 .. py:data:: FILE
 
-   
-
 .. py:data:: MATRIX
-   :type: typing_extensions.TypeAlias
-
-   
+   :type:  typing_extensions.TypeAlias
 
 .. py:data:: DATA
-
-   
 
 .. py:function:: read_json(json_file: FILE) -> DATA
 

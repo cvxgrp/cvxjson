@@ -1,24 +1,20 @@
-:py:mod:`json`
-==============
+json
+====
 
 .. py:module:: json
 
 
 Submodules
 ----------
+
 .. toctree::
-   :titlesonly:
    :maxdepth: 1
 
-   file/index.rst
-
-
-Package Contents
-----------------
+   /autoapi/json/file/index
 
 
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -26,6 +22,8 @@ Functions
    json.write_json
 
 
+Package Contents
+----------------
 
 .. py:function:: read_json(json_file: FILE) -> DATA
 

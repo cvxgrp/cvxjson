@@ -1,17 +1,17 @@
-:py:mod:`bson`
-==============
+bson
+====
 
 .. py:module:: bson
 
 
 Submodules
 ----------
+
 .. toctree::
-   :titlesonly:
    :maxdepth: 1
 
-   dataclass/index.rst
-   file/index.rst
-   io/index.rst
+   /autoapi/bson/dataclass/index
+   /autoapi/bson/file/index
+   /autoapi/bson/io/index
 
 

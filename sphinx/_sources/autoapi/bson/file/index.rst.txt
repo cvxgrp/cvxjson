@@ -1,5 +1,5 @@
-:py:mod:`bson.file`
-===================
+bson.file
+=========
 
 .. py:module:: bson.file
 
@@ -9,12 +9,18 @@
 
 
 
-Module Contents
----------------
+Attributes
+----------
+
+.. autoapisummary::
+
+   bson.file.FILE
+   bson.file.MATRIX
+   bson.file.MATRICES
 
 
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -24,29 +30,15 @@ Functions
    bson.file.from_bson
 
 
-
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   bson.file.FILE
-   bson.file.MATRIX
-   bson.file.MATRICES
-
+Module Contents
+---------------
 
 .. py:data:: FILE
 
-   
-
 .. py:data:: MATRIX
-   :type: typing_extensions.TypeAlias
-
-   
+   :type:  typing_extensions.TypeAlias
 
 .. py:data:: MATRICES
-
-   
 
 .. py:function:: read_bson(file: FILE) -> MATRICES
 

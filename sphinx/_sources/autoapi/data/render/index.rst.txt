@@ -1,5 +1,5 @@
-:py:mod:`data.render`
-=====================
+data.render
+===========
 
 .. py:module:: data.render
 
@@ -9,19 +9,16 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
    data.render.render
 
 
+Module Contents
+---------------
 
 .. py:function:: render(names, strategy)
-
 

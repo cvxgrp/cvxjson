@@ -1,15 +1,15 @@
-:py:mod:`data`
-==============
+data
+====
 
 .. py:module:: data
 
 
 Submodules
 ----------
+
 .. toctree::
-   :titlesonly:
    :maxdepth: 1
 
-   render/index.rst
+   /autoapi/data/render/index
 
 

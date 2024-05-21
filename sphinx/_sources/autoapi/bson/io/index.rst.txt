@@ -1,15 +1,11 @@
-:py:mod:`bson.io`
-=================
+bson.io
+=======
 
 .. py:module:: bson.io
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -17,6 +13,8 @@ Functions
    bson.io.decode
 
 
+Module Contents
+---------------
 
 .. py:function:: encode(data: Union[numpy.ndarray, pandas.DataFrame, polars.DataFrame]) -> Any
 

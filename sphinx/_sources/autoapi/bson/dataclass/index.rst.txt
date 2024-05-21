@@ -1,24 +1,21 @@
-:py:mod:`bson.dataclass`
-========================
+bson.dataclass
+==============
 
 .. py:module:: bson.dataclass
 
 
-Module Contents
----------------
-
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
    bson.dataclass.Data
 
 
-
+Module Contents
+---------------
 
 .. py:class:: Data
-
 
    .. py:method:: to_bson(file: cvx.bson.file.FILE) -> int
 
@@ -27,11 +24,12 @@ Classes
       :classmethod:
 
 
+
    .. py:method:: keys()
       :classmethod:
 
 
-   .. py:method:: items()
 
+   .. py:method:: items()
 
 
