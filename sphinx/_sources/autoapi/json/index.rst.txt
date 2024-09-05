@@ -11,6 +11,7 @@ Submodules
    :maxdepth: 1
 
    /autoapi/json/file/index
+   /autoapi/json/numpyencoder/index
 
 
 Functions

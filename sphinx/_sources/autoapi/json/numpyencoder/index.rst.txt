@@ -1,0 +1,28 @@
+json.numpyencoder
+=================
+
+.. py:module:: json.numpyencoder
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   json.numpyencoder.NumpyEncoder
+
+
+Module Contents
+---------------
+
+.. py:class:: NumpyEncoder
+
+   Bases: :py:obj:`json.JSONEncoder`
+
+
+   Custom encoder for numpy data types
+
+
+   .. py:method:: default(obj)
+
+
