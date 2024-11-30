@@ -101,7 +101,7 @@
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypeAlias</span>
 
 <span class="kn">import</span> <span class="nn">bson</span>
-<span class="kn">from</span> <span class="nn">cvx.bson.io</span> <span class="kn">import</span> <span class="n">decode</span><span class="p">,</span> <span class="n">encode</span>
+<span class="kn">from</span> <span class="nn">.io</span> <span class="kn">import</span> <span class="n">decode</span><span class="p">,</span> <span class="n">encode</span>
 
 <div class="viewcode-block" id="FILE">
 <a class="viewcode-back" href="../../autoapi/bson/file/index.html#bson.file.FILE">[docs]</a>
@@ -118,7 +118,7 @@
 
 
 <div class="viewcode-block" id="read_bson">
-<a class="viewcode-back" href="../../autoapi/bson/file/index.html#bson.file.read_bson">[docs]</a>
+<a class="viewcode-back" href="../../autoapi/bson/index.html#bson.file.read_bson">[docs]</a>
 <span class="k">def</span> <span class="nf">read_bson</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">FILE</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MATRICES</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Read a bson file and prepare the bson_document needed</span>
@@ -138,7 +138,7 @@
 
 
 <div class="viewcode-block" id="write_bson">
-<a class="viewcode-back" href="../../autoapi/bson/file/index.html#bson.file.write_bson">[docs]</a>
+<a class="viewcode-back" href="../../autoapi/bson/index.html#bson.file.write_bson">[docs]</a>
 <span class="k">def</span> <span class="nf">write_bson</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">FILE</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">MATRICES</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Write dictionary into a bson file</span>
